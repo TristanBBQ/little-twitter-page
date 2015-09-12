@@ -1,0 +1,40 @@
+{
+  "name": "little-twitter-page",
+  "version": "1.0.0",
+  "description": "Little Twitter Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "little",
+    "twitter",
+    "page"
+  ],
+  "author": "TristanBBQ",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-connect": "^2.2.0",
+    "gulp-sass": "^2.0.1",
+    "lodash": "^3.9.3",
+    "moment": "^2.10.6",
+    "parse": "^1.4.2",
+    "parse-react": "^0.3.2",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-html-replace": "^1.5.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-react": "^3.0.1",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^1.2.0",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.2"
+  }
+}
