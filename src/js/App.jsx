@@ -1,7 +1,7 @@
 import React from 'react';
 import Router , { Route, DefaultRoute, RouteHandler, Link, Navigation } from 'react-router';
 
-import MainComponent from './MainComponent.js';
+import MainComponent from './MainComponent.jsx';
 
 // App initialization
 var App = React.createClass({

@@ -15,7 +15,7 @@ var path = {
   CSS: 'src/css/*.scss',
   MINIFIED_OUT: 'build.min.js',
   DEST: 'dist',
-  ENTRY_POINT: './src/js/App.js'
+  ENTRY_POINT: './src/js/App.jsx'
 };
 
 gulp.task('copy-html', function(){
