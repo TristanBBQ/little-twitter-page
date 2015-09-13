@@ -11,44 +11,41 @@ var connect = require('gulp-connect');
 var sass = require('gulp-sass');
 
 var path = {
-  HTML: 'src/index.html',
+  SRC: 'src/',
+  DIST: 'dist/',
   CSS: 'src/css/*.scss',
   MINIFIED_OUT: 'build.min.js',
   DEST: 'dist',
-  ENTRY_POINT: './src/js/App.jsx'
+  ENTRY_POINT: './src/js/App.js',
+  JSX: 'src/js/*.jsx'
 };
 
 gulp.task('copy-html', function(){
-  gulp.src(path.HTML)
-  .pipe(gulp.dest(path.DEST));
+  gulp.src(path.SRC + '*.html')
+  .pipe(gulp.dest(path.DIST));
   });
 
 gulp.task('sass', function(){
-  gulp.src(path.CSS)
+  gulp.src(path.SRC + 'css/*.scss')
   .pipe(sass())
-  .pipe(gulp.dest(path.DEST + '/css'));
+  .pipe(gulp.dest(path.DIST + 'css'));
   });
+
+gulp.task('build-js', function() {
+  var b = browserify();
+  b.transform(babelify);
+  b.transform(reactify);
+  b.add('./src/js/App.jsx');
+  return b.bundle()
+    .pipe(source('build.js'))
+    .pipe(gulp.dest('./dist/js'));
+});
 
 gulp.task('watch', function() {
-  gulp.watch(path.HTML, ['copy-html']);
-  gulp.watch(path.CSS, ['sass']);
-
-  var watcher  = watchify(browserify({
-    entries: [path.ENTRY_POINT],
-    transform: [babelify, reactify],
-    debug: true,
-    cache: {}, packageCache: {}, fullPaths: true
-    }));
-
-  return watcher.on('update', function () {
-    watcher.bundle()
-    .pipe(source('build.js'))
-    .pipe(gulp.dest(path.DEST + '/js'))
-    })
-  .bundle()
-  .pipe(source('build.js'))
-  .pipe(gulp.dest(path.DEST + '/js'));
-  });
+  gulp.watch(path.SRC + '*.html', ['copy-html']);
+  gulp.watch(path.SRC + 'css/*.scss', ['sass']);
+  gulp.watch(path.SRC + 'js/*.jsx', ['build-js']);
+});
 
 gulp.task('connect', function() {
   connect.server({
@@ -58,4 +55,4 @@ gulp.task('connect', function() {
     });
   });
 
-gulp.task('default', ['copy-html', 'sass', 'watch', 'connect']);
+gulp.task('default', ['copy-html', 'sass', 'build-js', 'watch', 'connect']);

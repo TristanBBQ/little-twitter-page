@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 
+import TweetComponent from './TweetComponent.jsx';
+
 class TweetsComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +34,7 @@ class TweetsComponent extends React.Component {
         </div>
         {this.state.tweets.map((tweet, index) => {
           return (
-            <div key={index}>{tweet.text}</div>
+            <TweetComponent key={tweet.id_str} tweet={tweet} />
           )
         })}
       </div>
