@@ -11,16 +11,11 @@ class TweetsComponent extends React.Component {
 
   getTweets() {
     $.ajax({
-      url: 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=AppDirect&count=30',
-      dataType: "jsonp",
-      headers: {
-        'Authorization': 'Bearer ' + window.BEARER_TOKEN
-      }
-      success: function (data) {
-        console.log(data)
-        alert(data);
-      }
-    });
+      type: 'GET',
+      url: `http://127.0.0.1:3000/?screenName=${this.props.screenName}&count=${this.props.count}`,
+    }).done((response) => {
+      console.debug(response);
+    })
   }
 
   render() {

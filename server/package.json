@@ -1,0 +1,22 @@
+{
+  "name": "little-twitter-page-server",
+  "version": "1.0.0",
+  "description": "Little Twitter Page Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "little",
+    "twitter",
+    "page",
+    "server"
+  ],
+  "author": "TristanBBQ",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "http": "0.0.0",
+    "https": "^1.0.0"
+  }
+}
