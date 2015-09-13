@@ -3,112 +3,25 @@ body {
   font-family: 'Lato', 'Open Sans', sans-serif;
 }
 
-.DashboardComponent {
-  .container-fluid {
-    text-align: center;
-    .headline {
-      text-align: left;
-      div {
-        display: inline-block;
-      }
-      .logo {
-        padding: 24px 20px 0px 20px;
-        vertical-align: top;
-        font-size: 50px;
-      }
-    }
-  }
-}
+.MainComponent {
+  margin-top: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
 
-.MenuBarComponent {
-  padding: 20px;
-}
-
-.DashboardRideComponent {
-  .ride {
-    width: 500px;
-    margin: 10px auto;
-    border: 1px solid #000;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    &:hover {
-      background-color: #eee;
-      cursor: pointer
-    }
-  }
-}
-
-.RideDetailsComponent {
-  margin-left: 10%;
-  margin-right: 10%;
-  display: flex;
-  flex-direction: column;
-  .header {
-    //background-color: orange;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    .cities {
-      font-size: 50px;
-      font-weight: bold;
-    }
-    .departureTime {
-      font-size: 30px;
-      font-weight: 300;
-    }
-  }
-  .section-header {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: 300;
-  }
-  .driver, .passengers, .actions, .departureLocation, .messages {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .driver-messages-row {
+  .row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-  .driver {
-    .section-content {
-      display: flex;
-      .driver-photo {
-        border-radius: 12px;
-      }
-      .driver-info {
-        font-size: 18px;
-        margin-left: 18px;
-        margin-right: 10px;
-        .name {
-          font-size: 26px;
-        }
-      }
+
+    .row-container {
+      flex-grow: 1;
+      min-width: 33.33%;
     }
   }
-  .passengers {
-    .section-content {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      .passenger {
-        .passenger-photo {
-          border-radius: 40px;
-          margin-right: 10px;
-        }
-      }
-    }
-  }
-  .actions {
-    display: none;
-  }
-  .messages {
-    .message {
-      display: flex;
-      flex-direction: row;
-      .message-author-photo {
-        border-radius: 30px;
-      }  
-    }
-  }
+}
+
+.TweetsComponent {
+  background-color: #aaa;
+  margin-left: 10px;
+  margin-right: 10px;
 }

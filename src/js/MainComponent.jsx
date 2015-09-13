@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navigation } from 'react-router';
 
+import TweetsComponent from './TweetsComponent.jsx';
+
 class MainComponent extends React.Component {
 
   constructor(props) {
@@ -11,7 +13,11 @@ class MainComponent extends React.Component {
   render() {
     return (
       <div className="MainComponent">
-        Main Component!
+        <div className="row">
+          <div className="row-container">
+              <TweetsComponent screenName="AppDirect" count="30"/>
+          </div>
+        </div>
       </div>
     );
   }
