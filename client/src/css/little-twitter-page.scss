@@ -4,24 +4,36 @@ body {
 }
 
 .MainComponent {
-  margin-top: 50px;
-  margin-left: 20%;
-  margin-right: 20%;
-
   .row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    .header {
+      flex-grow: 3;
+      text-align: center;
+      font-size: 50px;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
     .row-container {
       flex-grow: 1;
-      min-width: 33.33%;
+      width: 33.33%;
     }
   }
 }
 
 .TweetsComponent {
-  background-color: #aaa;
   margin-left: 10px;
   margin-right: 10px;
+  word-wrap: break-word;
+  word-break: break-word;
+  line-height: 22px;
+  font-size: 14px;
+  .screen-name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 }

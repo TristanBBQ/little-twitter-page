@@ -5,7 +5,11 @@ class TweetsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      tweets: []
     };
+  }
+
+  componentDidMount() {
     this.getTweets();
   }
 
@@ -14,15 +18,23 @@ class TweetsComponent extends React.Component {
       type: 'GET',
       url: `http://127.0.0.1:3000/?screenName=${this.props.screenName}&count=${this.props.count}`,
     }).done((response) => {
-      console.debug(response);
+      this.setState({
+        tweets: response
+      })
     })
   }
 
   render() {
     return (
       <div className="TweetsComponent">
-        TweetsComponent
-        {this.props.screenName}
+        <div className="screen-name">
+          {`@${this.props.screenName}`}
+        </div>
+        {this.state.tweets.map((tweet, index) => {
+          return (
+            <div key={index}>{tweet.text}</div>
+          )
+        })}
       </div>
     )
   }
