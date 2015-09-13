@@ -32,11 +32,13 @@ class TweetsComponent extends React.Component {
         <div className="screen-name">
           {`@${this.props.screenName}`}
         </div>
-        {this.state.tweets.map((tweet, index) => {
-          return (
-            <TweetComponent key={tweet.id_str} tweet={tweet} />
-          )
-        })}
+        <div className="tweets">
+          {this.state.tweets.map((tweet, index) => {
+            return (
+              <TweetComponent key={tweet.id_str} tweet={tweet} />
+            )
+          })}
+        </div>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class TweetComponent extends React.Component {
 
@@ -7,14 +8,18 @@ class TweetComponent extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    console.debug(this.props.tweet);
+  convertToReadableDateString(rawString) {
+    return moment(Date.parse(this.props.tweet.created_at)).format('h:mm A - D MMM YYYY');
   }
 
   render() {
     return (
-      <div>
-        <a>{this.props.tweet.text}</a>
+      <div className="TweetComponent">
+        <div>{this.props.tweet.text}</div>
+        <div className="footer">
+            <div className="createdAt">{this.convertToReadableDateString(this.props.tweet.created_at)}</div>
+            <div className="twitterLink"><a href={'https://twitter.com/AppDirect/status/' + this.props.tweet.id_str}>View on Twitter</a></div>
+        </div>
       </div>
     )
   }

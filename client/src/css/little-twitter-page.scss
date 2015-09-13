@@ -28,14 +28,35 @@ body {
   margin-right: 10px;
   word-wrap: break-word;
   word-break: break-word;
-  line-height: 22px;
-  font-size: 14px;
+  line-height: 32px;
+  font-size: 24px;
+  font-weight: 300;
   padding: 10px;
   border: 1px solid black;
   .screen-name {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+  }
+}
+
+.TweetComponent {
+  padding: 5px;
+  border-bottom: 1px dotted black;
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #8A8A8A;
+    font-size: 16px;
+    a {
+      color: #009ABF;
+      &:visited {
+        color: #8A8A8A;
+      }
+    }
+    .twitterLink {
+      text-align: right;
+    }
   }
 }
