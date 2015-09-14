@@ -10,25 +10,36 @@ class MainComponent extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    $(() => {
+      $("#sortableTweetsComponents").sortable();
+      $("#sortableTweetsComponents").disableSelection();
+    });
+  }
+
   render() {
     return (
       <div className="MainComponent">
-        <div className="row">
-          <div className="header">
-            Most Recent Tweets
-          </div>
+        <div className="header">
+          Most Recent Tweets
         </div>
-        <div className="row">
-          <div className="row-container">
-            <TweetsComponent screenName="AppDirect" count="30"/>
-          </div>
-          <div className="row-container">
-            <TweetsComponent screenName="laughingsquid" count="30"/>
-          </div>
-          <div className="row-container">
-            <TweetsComponent screenName="techcrunch" count="30"/>
-          </div>
-        </div>
+        <ul id="sortableTweetsComponents">
+          <li>
+            <div className="row-container">
+              <TweetsComponent screenName="AppDirect" count="30"/>
+            </div>
+          </li>
+          <li>
+            <div className="row-container">
+              <TweetsComponent screenName="laughingsquid" count="30"/>
+            </div>
+          </li>
+          <li>
+            <div className="row-container">
+              <TweetsComponent screenName="techcrunch" count="30"/>
+            </div>
+          </li>
+        </ul>
       </div>
     );
   }
