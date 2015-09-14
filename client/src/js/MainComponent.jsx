@@ -16,6 +16,8 @@ class MainComponent extends React.Component {
 
   componentDidMount() {
     this.setupDraggableTweetsComponents();
+    $('body').css('background-color', this.state.backgroundColor);
+    $('body').css('color', this.state.fontColor);
   }
 
   setupDraggableTweetsComponents() {
@@ -95,9 +97,14 @@ class MainComponent extends React.Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    $('body').css('background-color', nextState.backgroundColor);
+    $('body').css('color', nextState.fontColor);
+  }
+
   render() {
     return (
-      <div className="MainComponent" style={{backgroundColor: this.state.backgroundColor, color: this.state.fontColor}}>
+      <div className="MainComponent">
         <div className="editColors">
           <button className="btn btn-default" data-toggle="collapse" data-target="#editColorsOptions" aria-expanded="false" aria-controls="editColorsOptions">
             <i className="fa fa-paint-brush"></i>

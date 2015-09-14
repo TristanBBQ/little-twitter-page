@@ -1,5 +1,4 @@
 body {
-  background-color: #fff;
   font-family: 'Lato', 'Open Sans', sans-serif;
   width: 100%;
   overflow-x: hidden;
@@ -31,6 +30,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 0px;
     li {
       flex-grow: 1;
       width: 33.33%;
