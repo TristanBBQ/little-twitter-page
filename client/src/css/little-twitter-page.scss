@@ -25,18 +25,9 @@ body {
         .TweetsComponent {
           background-color: #E6E6E6;
           border: 4px solid #173035;
+          cursor: grabbing;
         }
       }
-    }
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    li {
-      flex-grow: 1;
-      width: 33.33%;
     }
   }
 }
@@ -51,10 +42,29 @@ body {
   font-weight: 300;
   padding: 10px;
   border: 1px solid black;
+  cursor: pointer;
+  .settings-button {
+    float: right;
+    margin-top: -8px;
+  }
   .screen-name {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
+  }
+  .settings {
+    margin-top: 18px;
+    #input-count {
+      width: 60px;
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+    .actions {
+      text-align: right;
+      .cancel {
+        margin-right: 6px;
+      }
+    }
   }
 }
 

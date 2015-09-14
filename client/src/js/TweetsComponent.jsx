@@ -28,8 +28,22 @@ class TweetsComponent extends React.Component {
   render() {
     return (
       <div className="TweetsComponent">
+        <div className="settings-button">
+          <button className="btn btn-xs btn-default" type="button" data-toggle="collapse" data-target={`#settings-${this.props.screenName}`} aria-expanded="false" aria-controls={`settings-${this.props.screenName}`}>
+            <i className="fa fa-cog"></i>
+          </button>
+        </div>
         <div className="screen-name">
           {`@${this.props.screenName}`}
+        </div>
+        <div className="collapse settings well" id={`settings-${this.props.screenName}`}>
+          <span>Show last</span>
+          <input type="number" class="form-control" id="input-count" placeholder="30" />
+          <span>tweets</span>
+          <div className="actions">
+            <button className="btn btn btn-default cancel"  data-toggle="collapse" data-target={`#settings-${this.props.screenName}`} aria-expanded="false" aria-controls={`settings-${this.props.screenName}`}>Cancel</button>
+            <button className="btn btn btn-info save">Save</button>
+          </div>
         </div>
         <div className="tweets">
           {this.state.tweets.map((tweet, index) => {
