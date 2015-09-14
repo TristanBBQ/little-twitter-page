@@ -8,7 +8,7 @@ class MainComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ordered_columns: window.localStorage.getItem('ordered_columns').split(',')
+      ordered_columns: this.getOrderedColumns()
     };
   }
 
@@ -28,12 +28,14 @@ class MainComponent extends React.Component {
     });
   }
 
-  loadSettings() {
+  getOrderedColumns() {
     if(typeof(Storage) !== "undefined") {
-      this.setState({
-        ordered_columns: window.localStorage.getItem('ordered_columns').split(',')
-      });
-      console.info('Loaded settings!');
+      let ordered_columns = window.localStorage.getItem('little-twitter-page:ordered_columns').split(',');
+      if (!ordered_columns) {
+        return ['AppDirect', 'laughingsquid', 'techcrunch'];
+      } else {
+        return ordered_columns;
+      }
     } else {
       console.info('No Web Storage Support');
     }
@@ -41,12 +43,11 @@ class MainComponent extends React.Component {
 
   saveSettings() {
     let tweetsComponents = $('.TweetsComponent');
-    window.localStorage.setItem('ordered_columns', [tweetsComponents[0].id, tweetsComponents[1].id, tweetsComponents[2].id])
+    window.localStorage.setItem('little-twitter-page:ordered_columns', [tweetsComponents[0].id, tweetsComponents[1].id, tweetsComponents[2].id]);
     console.info('Settings saved!');
   }
 
   render() {
-
     return (
       <div className="MainComponent">
         <div className="header">
