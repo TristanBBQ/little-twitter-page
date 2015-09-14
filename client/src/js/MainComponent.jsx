@@ -105,7 +105,7 @@ class MainComponent extends React.Component {
           <div className="collapse editColorsOptions well" id="editColorsOptions">
             <label>Background:</label>
             <input type="color" className="form-control" id="backgroundColor" defaultValue={this.state.backgroundColor} onChange={this.handleInputChange.bind(this)}/>
-            <label>Font:</label>
+            <label className="fontColor">Font:</label>
             <input type="color" className="form-control" id="fontColor" defaultValue={this.state.fontColor} onChange={this.handleInputChange.bind(this)}/>
           </div>
         </div>
