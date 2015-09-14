@@ -1,6 +1,8 @@
 body {
   background-color: #fff;
   font-family: 'Lato', 'Open Sans', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .MainComponent {
@@ -68,5 +70,8 @@ body {
     .twitterLink {
       text-align: right;
     }
+  }
+  &:last-child {
+    border-bottom: none;
   }
 }
