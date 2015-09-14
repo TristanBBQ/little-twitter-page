@@ -11,6 +11,20 @@ class MainComponent extends React.Component {
   }
 
   componentDidMount() {
+    this.setupDraggableTweetsComponents();
+    this.loadSettings();
+  }
+
+  loadSettings() {
+    if(typeof(Storage) !== "undefined") {
+      // window.localStorage.setItem('test', 'helloworld');
+      console.debug(window.localStorage.getItem('test'));
+    } else {
+      console.info('No Web Storage Support');
+    }
+  }
+
+  setupDraggableTweetsComponents() {
     $(() => {
       $("#sortableTweetsComponents").sortable();
       $("#sortableTweetsComponents").disableSelection();
