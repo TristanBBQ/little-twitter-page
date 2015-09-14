@@ -6,6 +6,7 @@ class TweetsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      count: this.getCount(),
       tweets: []
     };
   }
@@ -15,14 +16,36 @@ class TweetsComponent extends React.Component {
   }
 
   getTweets() {
+    let count = this.getCount();
     $.ajax({
       type: 'GET',
-      url: `http://127.0.0.1:3000/?screenName=${this.props.screenName}&count=${this.props.count}`,
+      url: `http://127.0.0.1:3000/?screenName=${this.props.screenName}&count=${count}`,
     }).done((response) => {
       this.setState({
+        count: count,
         tweets: response
       })
     })
+  }
+
+  getCount() {
+    let count = window.localStorage.getItem(`little-twitter-page:${this.props.screenName}:count`);
+    if (!count) {
+      count = 30;
+      window.localStorage.setItem(`little-twitter-page:${this.props.screenName}:count`, count);
+    }
+    return count;
+  }
+
+  handleInputChange(event) {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
+  saveSettings() {
+    window.localStorage.setItem(`little-twitter-page:${this.props.screenName}:count`, this.state.count);
+    this.getTweets();
   }
 
   render() {
@@ -38,11 +61,11 @@ class TweetsComponent extends React.Component {
         </div>
         <div className="collapse settings well" id={`settings-${this.props.screenName}`}>
           <span>Show last</span>
-          <input type="number" className="form-control" id="input-count" placeholder="30" />
+          <input type="number" className="form-control" id="count" placeholder="30" defaultValue={this.state.count} onChange={this.handleInputChange.bind(this)} />
           <span>tweets</span>
           <div className="actions">
             <button className="btn btn btn-default cancel"  data-toggle="collapse" data-target={`#settings-${this.props.screenName}`} aria-expanded="false" aria-controls={`settings-${this.props.screenName}`}>Cancel</button>
-            <button className="btn btn btn-info save">Save</button>
+            <button className="btn btn btn-info save" data-toggle="collapse" data-target={`#settings-${this.props.screenName}`} aria-expanded="false" aria-controls={`settings-${this.props.screenName}`} onClick={this.saveSettings.bind(this)}>Save</button>
           </div>
         </div>
         <div className="tweets">

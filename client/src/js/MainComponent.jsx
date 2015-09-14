@@ -30,11 +30,13 @@ class MainComponent extends React.Component {
 
   getOrderedColumns() {
     if(typeof(Storage) !== "undefined") {
-      let ordered_columns = window.localStorage.getItem('little-twitter-page:ordered_columns').split(',');
-      if (!ordered_columns) {
-        return ['AppDirect', 'laughingsquid', 'techcrunch'];
-      } else {
+      let ordered_columns_string = window.localStorage.getItem('little-twitter-page:ordered_columns');
+      if (!ordered_columns_string) {
+        let ordered_columns = ['AppDirect', 'laughingsquid', 'techcrunch'];
+        window.localStorage.setItem('little-twitter-page:ordered_columns', ordered_columns);
         return ordered_columns;
+      } else {
+        return ordered_columns_string.split(',');
       }
     } else {
       console.info('No Web Storage Support');
@@ -56,17 +58,17 @@ class MainComponent extends React.Component {
         <ul id="sortableTweetsComponents">
           <li>
             <div className="row-container">
-              <TweetsComponent screenName={this.state.ordered_columns[0]} count="30"/>
+              <TweetsComponent screenName={this.state.ordered_columns[0]}/>
             </div>
           </li>
           <li>
             <div className="row-container">
-              <TweetsComponent screenName={this.state.ordered_columns[1]} count="30"/>
+              <TweetsComponent screenName={this.state.ordered_columns[1]}/>
             </div>
           </li>
           <li>
             <div className="row-container">
-              <TweetsComponent screenName={this.state.ordered_columns[2]} count="30"/>
+              <TweetsComponent screenName={this.state.ordered_columns[2]}/>
             </div>
           </li>
         </ul>

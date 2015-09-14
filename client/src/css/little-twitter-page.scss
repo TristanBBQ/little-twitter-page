@@ -54,7 +54,10 @@ body {
   }
   .settings {
     margin-top: 18px;
-    #input-count {
+    font-size: 16px;
+    font-weight: normal;
+    #count {
+      display: inline-block;
       width: 60px;
       margin-left: 6px;
       margin-right: 6px;
