@@ -19,7 +19,7 @@ class TweetsComponent extends React.Component {
     let count = this.getCount();
     $.ajax({
       type: 'GET',
-      url: `http://127.0.0.1:3000/?screenName=${this.props.screenName}&count=${count}`,
+      url: `${window.SERVER_URL}/?screenName=${this.props.screenName}&count=${count}`,
     }).done((response) => {
       this.setState({
         count: count,
