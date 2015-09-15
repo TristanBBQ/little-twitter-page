@@ -3,7 +3,7 @@ import Router , { Route, DefaultRoute, RouteHandler, Link, Navigation } from 're
 
 import MainComponent from './MainComponent.jsx';
 
-# Global variables
+// Global variables
 let bearer_token = "AAAAAAAAAAAAAAAAAAAAAJ4QhgAAAAAALfDFu06KaFURObCIE3o%2B2fY0xyw%3D3kbaUz3eYqvPzMlePyjS26eg3baxZoLacLVRBkOzexzZfYLu24";
 window.BEARER_TOKEN = bearer_token;
 window.SERVER_URL = "http://appdirect.tristanbbq.com:3000"
